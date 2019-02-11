@@ -21,5 +21,8 @@
   "homepage": "https://github.com/lidongdong64/vue-wheel#readme",
   "dependencies": {
     "vue": "^2.6.4"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
   }
 }
