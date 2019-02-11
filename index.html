@@ -30,23 +30,7 @@
     }
   </style>
   <style>
-    .w-button {
-      padding: 0 1em;
-      height: var(--button-height);
-      color: var(--color);
-      border-radius: var(--border-radius);
-      border: 1px solid var(--border-color);
-      background-color: var(--button-bg);
-    }
-    .w-button:hover {
-      border-color: var(--border-color-hover);
-    }
-    .w-button:active {
-      background-color: var(--button-bg-active);
-    }
-    .w-button:focus {
-      outline: none;
-    }
+
   </style>
 </head>
 <body>
@@ -55,15 +39,6 @@
     <w-button></w-button>
   </div>
 
-  <script src="./node_modules/vue/dist/vue.min.js"></script>
-  <script src="./button.js"></script>
-  <script>
-    new Vue({
-      el: '#app',
-      data: {
-        msg: 'hi, vue.js'
-      }
-    })
-  </script>
+  <script src="./src/app.js"></script>
 </body>
 </html>
