@@ -1,9 +1,10 @@
 <template>
-  <button class="w-button" :class="{[`icon-${iconPosition}`]: true}">
-    <w-icon v-if="icon" :name="icon"></w-icon>
-    <div class="content">
+  <button class="w-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+    <w-icon v-if="loading" name="loading" class="loading icon"></w-icon>
+    <w-icon v-if="icon && !loading" :name="icon" class="icon"></w-icon>
+    <span class="content">
       <slot></slot>
-    </div>
+    </span>
   </button>
 </template>
 
@@ -12,6 +13,10 @@
     name: 'w-button',
     props: {
       icon: {},
+      loading: {
+        type: Boolean,
+        default: false
+      },
       iconPosition: {
         type: String,
         default: 'left',
@@ -24,6 +29,14 @@
 </script>
 
 <style lang="scss">
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   .w-button {
     display: inline-flex;
     justify-content: center;
@@ -45,7 +58,7 @@
     &:focus {
       outline: none;
     }
-    > .wheel-icon {
+    > .icon {
       order: 1;
       width: 1em;
       height: 1em;
@@ -58,10 +71,13 @@
       > .content {
         order: 1;
       }
-      > .wheel-icon {
+      > .icon {
         order: 2;
         margin-left: .3em;
       }
+    }
+    .loading {
+      animation: spin 2s infinite linear;
     }
   }
 </style>
