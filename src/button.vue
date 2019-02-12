@@ -1,8 +1,6 @@
 <template>
   <button class="w-button" :class="{[`icon-${iconPosition}`]: true}">
-    <svg v-if="icon" class="icon">
-      <use :xlink:href="`#icon-${icon}`"></use>
-    </svg>
+    <w-icon v-if="icon" :name="icon"></w-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -12,23 +10,17 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'w-button',
-//    props: ['icon', 'iconPosition']
     props: {
       icon: {},
       iconPosition: {
         type: String,
         default: 'left',
         validator (value) {
-//          if (value !== 'left' && value !== 'right') {
-//            return false;
-//          } else {
-//            return true;
-//          }
           return value === 'left' || value === 'right';
         }
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
@@ -53,7 +45,7 @@
     &:focus {
       outline: none;
     }
-    > .icon {
+    > .wheel-icon {
       order: 1;
       width: 1em;
       height: 1em;
@@ -66,7 +58,7 @@
       > .content {
         order: 1;
       }
-      > .icon {
+      > .wheel-icon {
         order: 2;
         margin-left: .3em;
       }
