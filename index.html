@@ -28,6 +28,13 @@
     #app {
       margin: 20px;
     }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1em;
+      height: 32px;
+    }
   </style>
   <style>
 
@@ -36,9 +43,14 @@
 <body>
   <div id="app">
     <p>{{msg}}</p>
-    <w-button></w-button>
+    <button class="btn">按钮</button>
+    <w-button icon="appreciate" icon-position="left">赞</w-button>
+    <w-button icon="back" icon-position="left">按钮</w-button>
+    <w-button icon="right" icon-position="right">按钮</w-button>
+    <w-button icon="settings">按钮</w-button>
   </div>
 
   <script src="./src/app.js"></script>
+  <script src="//at.alicdn.com/t/font_1041472_5xor79whtjc.js"></script>
 </body>
 </html>
